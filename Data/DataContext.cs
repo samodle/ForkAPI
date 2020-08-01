@@ -11,6 +11,6 @@ namespace ForkApp.API.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-        public DbSet<Value> MyProperty { get; set; }
+        public DbSet<Value> Values { get; set; }
     }
 }
