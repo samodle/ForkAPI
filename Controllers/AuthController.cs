@@ -51,6 +51,9 @@ namespace ForkApp.API.Controllers
         {
             //throw new Exception("test error!!!");
 
+            if (userForLoginDto.Username == null)
+                return Unauthorized(); //no hints if you aren't registered
+
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
 
             if (userFromRepo == null)

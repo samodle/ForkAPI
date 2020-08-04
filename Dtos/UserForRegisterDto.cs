@@ -9,6 +9,7 @@ namespace ForkApp.API.Dtos
     public class UserForRegisterDto
     {
         [Required]
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "You must specify username between 3 and 30 characters. ")]
         public string Username { get; set; }
 
         [Required]
