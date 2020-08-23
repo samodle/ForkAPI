@@ -34,7 +34,7 @@ namespace ForkApp.API.Migrations
                     b.Property<string>("Url")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
@@ -110,9 +110,11 @@ namespace ForkApp.API.Migrations
 
             modelBuilder.Entity("ForkApp.API.Models.Photo", b =>
                 {
-                    b.HasOne("ForkApp.API.Models.User", null)
+                    b.HasOne("ForkApp.API.Models.User", "User")
                         .WithMany("Photos")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
